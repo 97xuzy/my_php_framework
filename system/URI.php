@@ -6,9 +6,7 @@
  * http://www.cnblogs.com/fredshare/archive/2012/09/17/2688944.html 
  * 
  */
-echo var_dump($_SERVER);
-echo '<br/>';
-echo var_dump($_SESSION);
+
 //
 // Try to get the URI
 //
@@ -89,9 +87,10 @@ $arr_url['method'] = empty($_AppPathArr[1]) ? 'index' : $_AppPathArr[1];
 // Parameter detect
 //
 
-// If there is param in the URL (count > 2), then there the count must be even number, a param to a value
+// If there is param in the URL (count > 2), in addition, the count must be even number, a param to a value
 if ( $_AppPathArr_Count > 2 && $_AppPathArr_Count % 2 != 0 )
 {
+    log_warn('URI.php\tParameter Error!');
     die('<p>Parameter Error!</p>');
 }
 else
@@ -112,6 +111,7 @@ $module_name = ucfirst($arr_url['controller']);
 $module_file = _CONTROLLER_dir.$module_name.'.php';
 $method_name = $arr_url['method'];
 $params = $arr_url['params'];
+
 /*
 echo 'Module File Path:' . $module_file;
 echo '<br/>';
@@ -134,6 +134,7 @@ if ( file_exists($module_file) )			// if the controller file exist
     // Check if the method exist
     if ( !method_exists($obj_module, $method_name) )
     {
+        log_error('URI.php\tMethod does not exist!');
         die("<p>Method does not exist!</p>");
     }
     else
@@ -141,7 +142,7 @@ if ( file_exists($module_file) )			// if the controller file exist
         // Check if the method can be called
         if ( is_callable( array($obj_module, $method_name) ) )
         {
-            if( !empty($parms) )
+            if( !empty($params) )
             {
                 $obj_module -> $method_name($params);
             }
@@ -150,12 +151,14 @@ if ( file_exists($module_file) )			// if the controller file exist
         }
         else
         {
+            log_error('URI.php\tMethod can not be called!');
             die("<p>Method can not be called!</p>");
         }
     }
 }
 else
 {
+    log_error('URI.php\tModule does not exist!');
     die("<p>Module does not exist!</p>");
 }
 
