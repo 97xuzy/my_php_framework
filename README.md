@@ -12,7 +12,7 @@ The router part of the framework is derived from code from a [blog post] (http:/
 Directory
 -------------
 
-- /application/&
+- /application/
   where your application code goes
 - /application/controller/
   the controller dir
