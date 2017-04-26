@@ -12,10 +12,17 @@ The router part of the framework is derived from code from a [blog post] (http:/
 Directory
 -------------
 
-- /application/&nbsp;&nbsp;&nbsp;&nbsp;where your application code goes
-- /application/controller/        the controller dir
-- /application/model/             the model dir
-- /application/view/              the view dir
-- /system/                        where the framework resides
-- /system/lib/                    the library dir
-- /system/log/                    the log dir
+- /application/&
+  where your application code goes
+- /application/controller/
+  the controller dir
+- /application/model/
+  the model dir
+- /application/view/
+  the view dir
+- /system/
+  where the framework resides
+- /system/lib/
+  the library dir
+- /system/log/
+  the log dir
