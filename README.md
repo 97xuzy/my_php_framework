@@ -2,6 +2,7 @@ my_php_framework
 =============
 
 <p>A MVC php framework</p>
+<p>This is basically me reinvent the wheel, just so that I know how the wheel works</p>
 <p>The mechanism of this framework is similar to Codeigniter, since that is the first framework I used</p>
 <p>The routing part of the framework is derived from code from a blog post (http://www.cnblogs.com/fredshare/archive/2012/09/17/2688944.html)</p>
 
